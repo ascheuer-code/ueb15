@@ -1,45 +1,42 @@
-import java.util.ArrayList;
-
 public class Palindrom {
 
-    public static Boolean checkifPalindromIterativ(String string1, String string2) {
+    public static void iterativ(String string1, String string2) {
 
-        char[] one = string1.toLowerCase().toCharArray();
-        char[] two = string2.toLowerCase().toCharArray();
+        for (int i = 0; i < string1.length(); i++) {
+            if (string1.length() != string2.length()) {
+                System.out.println("false");
+                return;
+            }
 
-        int sumone = 0;
-        int sumtwo = 0;
+            String charakter = string1.substring(0, 1);
 
-        for (char c : one) {
-            sumone += (int) c;
+            String substring1 = string1.replace(charakter, "");
+            String substring2 = string2.replace(charakter, "");
         }
-        for (char c : two) {
-            sumtwo += (int) c;
-        }
-
-        if (sumone == sumtwo) {
-            return true;
-        }
-        return false;
+        System.out.println("true");
     }
 
     static int summone = 0;
     static int summetwo = 0;
 
-    public static void checkIfPalindromRecursiv(String string1, String string2) {
+    public static void recursiv(String string1, String string2) {
 
-        if (string1.isBlank() && string2.isBlank() || string1.isBlank() || string2.isBlank()) {
-            if (summone == summetwo) {
-                System.out.print(true);
-            }
+        if (string1.length() != string2.length()) {
+            System.out.println("false");
+            return;
         }
 
-        String[] one = string1.split("*");
-        String[] two = string2.split("*");
+        if (string1.length() == 0 && string2.length() == 0) {
+            System.out.println("true");
+            return;
+        }
 
-        summone += Integer.valueOf(one[0]);
-        summetwo += Integer.valueOf(two[0]);
+        String charakter = string1.substring(0, 1);
 
+        String substring1 = string1.replace(charakter, "");
+        String substring2 = string2.replace(charakter, "");
+
+        recursiv(substring1, substring2);
     }
 
 }
