@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class App {
@@ -11,12 +12,12 @@ public class App {
     }
 
     public App() {
-        input = new Scanner(System.in);
+
     }
 
     public void start(String[] args) {
 
-        if (args instanceof String[]) {
+        if (!args[0].getClass().isInstance(File.class)) {
 
             palindrom = new PalindromCheck();
 
@@ -25,13 +26,15 @@ public class App {
                 palindrom.isPalindromRekursiv(wort);
             }
         } else {
+
             palindrom = new PalindromCheck();
 
-            for (int i = 0; i < Integer.MAX_VALUE; i++) {
-                if (args[i] != null) {
-                    palindrom.isPalindromIterativ(wort);
-                    palindrom.isPalindromRekursiv(wort);
-                }
+            input = new Scanner(args[0]);
+
+            while (input.hasNextLine()) {
+
+                palindrom.isPalindromIterativ(input.nextLine());
+                palindrom.isPalindromRekursiv(input.nextLine());
             }
         }
 
