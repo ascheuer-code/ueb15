@@ -2,24 +2,27 @@ public class Palindrom {
 
     public static void iterativ(String string1, String string2) {
 
+        String string1LowerCase = string1.toLowerCase();
+        String string2LowerCase = string2.toLowerCase();
+
         for (int i = 0; i < string1.length(); i++) {
             if (string1.length() != string2.length()) {
                 System.out.println("false");
                 return;
             }
 
-            String charakter = string1.substring(0, 1);
+            String charakter = string1LowerCase.substring(0, 1);
 
-            String substring1 = string1.replace(charakter, "");
-            String substring2 = string2.replace(charakter, "");
+            string1 = string1LowerCase.replace(charakter, "");
+            string2 = string2LowerCase.replace(charakter, "");
         }
         System.out.println("true");
     }
 
-    static int summone = 0;
-    static int summetwo = 0;
-
     public static void recursiv(String string1, String string2) {
+
+        String string1LowerCase = string1.toLowerCase();
+        String string2LowerCase = string2.toLowerCase();
 
         if (string1.length() != string2.length()) {
             System.out.println("false");
@@ -31,12 +34,12 @@ public class Palindrom {
             return;
         }
 
-        String charakter = string1.substring(0, 1);
+        String charakter = string1LowerCase.substring(0, 1);
 
-        String substring1 = string1.replace(charakter, "");
-        String substring2 = string2.replace(charakter, "");
+        string1 = string1LowerCase.replace(charakter, "");
+        string2 = string2LowerCase.replace(charakter, "");
 
-        recursiv(substring1, substring2);
+        recursiv(string1, string2);
     }
 
 }
