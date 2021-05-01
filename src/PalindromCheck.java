@@ -2,8 +2,8 @@ public class PalindromCheck implements Palindrom {
 
     @Override
     public void startCheck(String wort) {
-        isPalindromIterativ(wort);
-        isPalindromRekursiv(wort);
+        System.out.println(isPalindromIterativ(wort));
+        System.out.println(isPalindromRekursiv(wort));
     }
 
     @Override

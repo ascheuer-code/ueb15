@@ -17,13 +17,11 @@ public class App {
 
     public void start(String[] args) throws FileNotFoundException {
 
-        int length = args.length;
-
-        if (length == 0) {
+        if (args == null) {
             return;
         }
 
-        if (length == 1) {
+        if (args.length == 1) {
             String filename = args[0];
             File file = new File(filename);
 
