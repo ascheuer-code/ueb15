@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class App {
 
-    private Palindrom palindrom;
+    private PalindromIterativ palindromiterativ;
+    private PalindromRekursiv palindromrekursiv;
     private Scanner input;
 
     public static void main(String[] args) throws Exception {
@@ -14,16 +15,25 @@ public class App {
     }
 
     public App() {
-
+        palindromiterativ = new PalindromIterativ();
+        palindromrekursiv = new PalindromRekursiv();
     }
 
     public void start(String[] args) throws FileNotFoundException {
-        for (String filename : args) {
-            String file = getFileContent(filename);
-            if (file != null) {
-             while(getFileContent(filename) != null){
-                 System.out.println(palindrom.isPalindrom(file));
-             }
+
+        for (String string : args) {
+            System.out.println(palindromiterativ.isPalindrom(string));
+            System.out.println(palindromrekursiv.isPalindrom(string));
+
+            // String file = getFileContent(filename);
+            // if (file != null) {
+            // while (getFileContent(filename) != null) {
+            // palindrom.isPalindrom(file);
+            // }
+            // } else {
+            // }
+        }
+
     }
 
     public static String getFileContent(String filename) {

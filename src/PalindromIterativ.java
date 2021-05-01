@@ -11,7 +11,7 @@ public class PalindromIterativ implements Palindrom {
         char[] character = toLowerCase.toCharArray();
 
         for (int i = 0; i < character.length / 2; i++) {
-            if ((int) character[i] != (int) character[character.length - 1]) {
+            if ((int) character[i] != (int) character[character.length - i - 1]) {
                 return false;
             }
         }

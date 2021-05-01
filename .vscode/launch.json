@@ -8,7 +8,17 @@
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "${file}",
+            "vmArgs": [
+                "-ea",
+                "-Xmx1024m",
+                "-Xms256m",
+                "-Xss24m",
+                "-XX:MaxPermSize=256m",
+                "-XX:-UseLoopPredicate",
+            ],
+            "console": "externalTerminal",
+            "args": "one one"
         }
     ],
     "java.project.sourcePaths": [
