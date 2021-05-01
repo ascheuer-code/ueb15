@@ -17,23 +17,31 @@ public class App {
 
     public void start(String[] args) {
 
-        if (!args[0].getClass().isInstance(File.class)) {
+        int length = args.length();
 
-            palindrom = new PalindromCheck();
+        if (length == 0) {
+            return;
+        }
 
+        if (length == 1) {
+            String filename = args[0];
+            File file = new File(filename);
+
+            if(file.exists()){
+                input = new Scanner(file);
+
+                while(input.hasNextLine()){
+                    palindrom.startCheck(input.nextLine());
+                }
+            }
+        }else{
             for (String wort : args) {
+                
                 palindrom.startCheck(wort);
             }
-        } else {
+        }
 
-            palindrom = new PalindromCheck();
-
-            input = new Scanner(args[0]);
-
-            while (input.hasNextLine()) {
-
-                palindrom.startCheck(input.nextLine());
-            }
+        
         }
 
     }
