@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class App {
@@ -16,29 +18,24 @@ public class App {
     }
 
     public void start(String[] args) throws FileNotFoundException {
+        for (String filename : args) {
+            String file = getFileContent(filename);
+            if (file != null) {
+             while(getFileContent(filename) != null){
+                 System.out.println(palindrom.isPalindrom(file));
+             }
+    }
 
-        if (args == null) {
-            return;
-        }
-
-        if (args.length == 1) {
-            String filename = args[0];
-            File file = new File(filename);
-
-            if (file.exists()) {
-                input = new Scanner(file);
-
-                while (input.hasNextLine()) {
-                    palindrom.startCheck(input.nextLine());
-                }
-            }
-        } else {
-            for (String wort : args) {
-
-                palindrom.startCheck(wort);
+    public static String getFileContent(String filename) {
+        final File file = new File(filename);
+        if (file.exists()) {
+            try {
+                return Files.readString(Paths.get(file.getAbsolutePath()));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-
+        return null;
     }
 
 }
