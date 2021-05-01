@@ -1,10 +1,10 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class App {
 
     private Palindrom palindrom;
-    private String wort;
     private Scanner input;
 
     public static void main(String[] args) throws Exception {
@@ -15,9 +15,9 @@ public class App {
 
     }
 
-    public void start(String[] args) {
+    public void start(String[] args) throws FileNotFoundException {
 
-        int length = args.length();
+        int length = args.length;
 
         if (length == 0) {
             return;
@@ -27,21 +27,18 @@ public class App {
             String filename = args[0];
             File file = new File(filename);
 
-            if(file.exists()){
+            if (file.exists()) {
                 input = new Scanner(file);
 
-                while(input.hasNextLine()){
+                while (input.hasNextLine()) {
                     palindrom.startCheck(input.nextLine());
                 }
             }
-        }else{
+        } else {
             for (String wort : args) {
-                
+
                 palindrom.startCheck(wort);
             }
-        }
-
-        
         }
 
     }
