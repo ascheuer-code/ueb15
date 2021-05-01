@@ -1,6 +1,6 @@
 public interface Palindrom {
 
-    abstract void startCheck(String wort);
+    abstract Boolean startCheck(String wort);
 
     abstract boolean isPalindromRekursiv(String wort);
 

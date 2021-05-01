@@ -1,7 +1,7 @@
 public class PalindromCheck implements Palindrom {
 
     @Override
-    public void startCheck(String wort) {
+    public Boolean startCheck(String wort) {
         isPalindromIterativ(wort);
         isPalindromRekursiv(wort);
     }
