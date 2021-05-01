@@ -1,6 +1,12 @@
 public class PalindromCheck implements Palindrom {
 
     @Override
+    public void startCheck(String wort) {
+        isPalindromIterativ(wort);
+        isPalindromRekursiv(wort);
+    }
+
+    @Override
     public boolean isPalindromRekursiv(String wort) {
         String toLowerCase = wort.toLowerCase();
 

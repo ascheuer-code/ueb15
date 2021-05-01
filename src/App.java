@@ -22,8 +22,7 @@ public class App {
             palindrom = new PalindromCheck();
 
             for (String wort : args) {
-                palindrom.isPalindromIterativ(wort);
-                palindrom.isPalindromRekursiv(wort);
+                palindrom.startCheck(wort);
             }
         } else {
 
@@ -33,8 +32,7 @@ public class App {
 
             while (input.hasNextLine()) {
 
-                palindrom.isPalindromIterativ(input.nextLine());
-                palindrom.isPalindromRekursiv(input.nextLine());
+                palindrom.startCheck(input.nextLine());
             }
         }
 
