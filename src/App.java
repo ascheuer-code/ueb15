@@ -42,6 +42,9 @@ public class App {
 
             log.forEach(p -> System.out.println(p));
 
+            // TODO: schrott aus dem log in ne datei schreiben und aus dem dreck dann nen
+            // beschissenes Diagramm machen
+
             // list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
             // list.forEach(p -> System.out.println(palindromrekursiv.isPalindrom(p)));
         } else {
