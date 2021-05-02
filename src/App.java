@@ -17,13 +17,30 @@ public class App {
 
     public void start(String[] args) throws IOException {
 
+        ArrayList<String> log = new ArrayList<String>();
+
         final String filename = args[0];
 
         if (Lib_File.isExistentBoolean(filename)) {
             ArrayList<String> list = Lib_File.readLinebyLine(filename);
 
-            list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
-            list.forEach(p -> System.out.println(palindromrekursiv.isPalindrom(p)));
+            log.add(String.format("%50s %10s %10s", "Stringlänge", "Iterativ", "Rekursiv"));
+
+            list.forEach((p) -> {
+
+                long start = System.currentTimeMillis();
+                palindromiterativ.isPalindrom(p);
+                long ende = System.currentTimeMillis();
+
+                long start1 = System.currentTimeMillis();
+                palindromrekursiv.isPalindrom(p);
+                long ende1 = System.currentTimeMillis();
+
+                log.add(String.format("%50d %10d,%10d", p.length(), ende - start, ende1 - start1));
+            });
+
+            // list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
+            // list.forEach(p -> System.out.println(palindromrekursiv.isPalindrom(p)));
         } else {
             for (String string : args) {
                 System.out.println(palindromiterativ.isPalindrom(string));
