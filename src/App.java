@@ -24,20 +24,23 @@ public class App {
         if (Lib_File.isExistentBoolean(filename)) {
             ArrayList<String> list = Lib_File.readLinebyLine(filename);
 
-            log.add(String.format("%50s %10s %10s", "Stringlänge", "Iterativ", "Rekursiv"));
+            log.add(String.format("%50s %10s %10s", "Stringlaenge", "Iterativ", "Rekursiv"));
 
             list.forEach((p) -> {
 
-                long start = System.currentTimeMillis();
+                long startiterativ = System.nanoTime();
                 palindromiterativ.isPalindrom(p);
-                long ende = System.currentTimeMillis();
+                long endeiterativ = System.nanoTime();
 
-                long start1 = System.currentTimeMillis();
+                long startrekursiv = System.nanoTime();
                 palindromrekursiv.isPalindrom(p);
-                long ende1 = System.currentTimeMillis();
+                long enderekursiv = System.nanoTime();
 
-                log.add(String.format("%50d %10d,%10d", p.length(), ende - start, ende1 - start1));
+                log.add(String.format("%50d %10d,%10d", p.length(), endeiterativ - startiterativ,
+                        enderekursiv - startrekursiv));
             });
+
+            log.forEach(p -> System.out.println(p));
 
             // list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
             // list.forEach(p -> System.out.println(palindromrekursiv.isPalindrom(p)));

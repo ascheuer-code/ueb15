@@ -8,10 +8,9 @@ public class PalindromIterativ implements Palindrom {
         }
 
         String toLowerCase = wort.toLowerCase();
-        char[] character = toLowerCase.toCharArray();
 
-        for (int i = 0; i < character.length / 2; i++) {
-            if ((int) character[i] != (int) character[character.length - i - 1]) {
+        for (int i = 0; i < toLowerCase.length() / 2; i++) {
+            if (toLowerCase.charAt(i) != toLowerCase.charAt(toLowerCase.length() - i - 1)) {
                 return false;
             }
         }
