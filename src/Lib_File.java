@@ -51,12 +51,12 @@ public class Lib_File {
 
     }
 
-    public static boolean isExistent(String filename) throws FileNotFoundException {
+    public static boolean isExistentBoolean(String filename) throws FileNotFoundException {
         File file = new File(filename);
         if (file.exists()) {
             return true;
         }
-        throw new FileNotFoundException(Lib_Message.errorFileNotFound(filename));
+        return false;
     }
 
 }

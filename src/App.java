@@ -19,7 +19,7 @@ public class App {
 
         final String filename = args[0];
 
-        if (Lib_File.isExistent(filename)) {
+        if (Lib_File.isExistentBoolean(filename)) {
             ArrayList<String> list = Lib_File.readLinebyLine(filename);
 
             list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
