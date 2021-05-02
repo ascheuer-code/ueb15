@@ -12,7 +12,7 @@ public class PalindromRekursiv implements Palindrom {
             return false;
         }
         if (toLowerCase.charAt(0) == toLowerCase.charAt(toLowerCase.length() - 1)) {
-            isPalindrom(toLowerCase.substring(1, toLowerCase.length() - 1));
+            return isPalindrom(toLowerCase.substring(1, toLowerCase.length() - 1));
         }
         return true;
 
