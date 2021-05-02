@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,12 +24,12 @@ public class App {
         palindromrekursiv = new PalindromRekursiv();
     }
 
-    public void start(String[] args) throws FileNotFoundException {
+    public void start(String[] args) throws IOException {
 
         final String myFileName = args[0];
         File file = new File(myFileName);
         if (file.exists()) {
-            List<String> list = getFileContent(file);
+            List<String> list = Files.readAllLines(Paths.get(file.getAbsolutePath()));
 
             list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
             list.forEach(p -> System.out.println(palindromrekursiv.isPalindrom(p)));
@@ -39,19 +40,6 @@ public class App {
             }
         }
 
-    }
-
-    public static List<String> getFileContent(File file) {
-        {
-            try {
-                return Files.readAllLines(Paths.get(file.getAbsolutePath()));
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return null;
     }
 
 }
