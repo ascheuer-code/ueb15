@@ -34,22 +34,17 @@ public class App {
             list.forEach((p) -> {
 
                 Long startiterativ;
-                long endeiterativ;
 
                 long startrekursiv;
                 Long enderekursiv;
 
                 startiterativ = System.nanoTime();
                 palindromiterativ.isPalindrom(p);
-                endeiterativ = System.nanoTime();
-
-                Long ergebnissIterativ = endeiterativ - startiterativ;
+                Long ergebnissIterativ = System.nanoTime() - startiterativ;
 
                 startrekursiv = System.nanoTime();
                 palindromrekursiv.isPalindrom(p);
-                enderekursiv = System.nanoTime();
-
-                Long ergebnissrekursiv = enderekursiv - startrekursiv;
+                Long ergebnissrekursiv = System.nanoTime() - startrekursiv;
 
                 log.add(String.format("%5d %10d,%10d", p.length(), ergebnissIterativ, ergebnissrekursiv));
             });
@@ -66,9 +61,9 @@ public class App {
             }
 
         } else {
-            for (String string : args) {
-                System.out.println(palindromiterativ.isPalindrom(string));
-                System.out.println(palindromrekursiv.isPalindrom(string));
+            for (String wort : args) {
+                System.out.println(palindromiterativ.isPalindrom(wort));
+                System.out.println(palindromrekursiv.isPalindrom(wort));
             }
         }
 
