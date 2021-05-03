@@ -1,4 +1,9 @@
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class App {
@@ -24,20 +29,29 @@ public class App {
         if (Lib_File.isExistentBoolean(filename)) {
             ArrayList<String> list = Lib_File.readLinebyLine(filename);
 
-            log.add(String.format("%50s %10s %10s", "Stringlaenge", "Iterativ", "Rekursiv"));
+            log.add(String.format("%5s %10s %10s", "Stringlaenge", "Iterativ", "Rekursiv"));
 
             list.forEach((p) -> {
 
-                long startiterativ = System.nanoTime();
+                Long startiterativ;
+                long endeiterativ;
+
+                long startrekursiv;
+                Long enderekursiv;
+
+                startiterativ = System.nanoTime();
                 palindromiterativ.isPalindrom(p);
-                long endeiterativ = System.nanoTime();
+                endeiterativ = System.nanoTime();
 
-                long startrekursiv = System.nanoTime();
+                Long ergebnissIterativ = endeiterativ - startiterativ;
+
+                startrekursiv = System.nanoTime();
                 palindromrekursiv.isPalindrom(p);
-                long enderekursiv = System.nanoTime();
+                enderekursiv = System.nanoTime();
 
-                log.add(String.format("%50d %10d,%10d", p.length(), endeiterativ - startiterativ,
-                        enderekursiv - startrekursiv));
+                Long ergebnissrekursiv = enderekursiv - startrekursiv;
+
+                log.add(String.format("%5d %10d,%10d", p.length(), ergebnissIterativ, ergebnissrekursiv));
             });
 
             log.forEach(p -> System.out.println(p));
@@ -45,8 +59,12 @@ public class App {
             // TODO: schrott aus dem log in ne datei schreiben und aus dem dreck dann nen
             // beschissenes Diagramm machen
 
-            // list.forEach(p -> System.out.println(palindromiterativ.isPalindrom(p)));
-            // list.forEach(p -> System.out.println(palindromrekursiv.isPalindrom(p)));
+            File file = new File("ergebniss.txt");
+            for (String string : log) {
+                Files.writeString(Paths.get(file.getAbsolutePath()), String.format("%s\n", string),
+                        StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+            }
+
         } else {
             for (String string : args) {
                 System.out.println(palindromiterativ.isPalindrom(string));

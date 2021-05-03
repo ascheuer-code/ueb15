@@ -2,17 +2,16 @@ public class PalindromRekursiv implements Palindrom {
 
     @Override
     public boolean isPalindrom(String wort) {
-        String toLowerCase = wort.toLowerCase();
 
-        if (toLowerCase.length() == 0 || toLowerCase.length() == 1) {
+        if (wort.length() == 0 || wort.length() == 1) {
             return true;
         }
 
-        if (toLowerCase.charAt(0) != toLowerCase.charAt(toLowerCase.length() - 1)) {
+        if (wort.charAt(0) != wort.charAt(wort.length() - 1)) {
             return false;
         }
-        if (toLowerCase.charAt(0) == toLowerCase.charAt(toLowerCase.length() - 1)) {
-            return isPalindrom(toLowerCase.substring(1, toLowerCase.length() - 1));
+        if (wort.charAt(0) == wort.charAt(wort.length() - 1)) {
+            return isPalindrom(wort.substring(1, wort.length() - 1));
         }
         return true;
 
