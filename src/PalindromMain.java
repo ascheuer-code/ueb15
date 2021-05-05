@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class App {
+public class PalindromMain {
 
     private PalindromIterativ palindromiterativ;
     private PalindromRekursiv palindromrekursiv;
@@ -11,10 +11,10 @@ public class App {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        new App().start(args);
+        new PalindromMain().start(args);
     }
 
-    public App() {
+    public PalindromMain() {
         palindromiterativ = new PalindromIterativ();
         palindromrekursiv = new PalindromRekursiv();
     }
