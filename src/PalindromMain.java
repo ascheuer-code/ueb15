@@ -1,26 +1,39 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
+/** ueb 15 - Palinddrom Main
+* 
+* @author Simon Klasen & Andreas Scheuer
+* @version 0.1
+*/ 
+
 public class PalindromMain {
 
     private PalindromIterativ palindromiterativ;
     private PalindromRekursiv palindromrekursiv;
 
     /**
-     * @param args
+     * Main Methode 
+     * 
+     * @param args übergebene Parameter
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
         new PalindromMain().start(args);
     }
 
+    /** 
+     * Standardkonstruktor
+     */
     public PalindromMain() {
         palindromiterativ = new PalindromIterativ();
         palindromrekursiv = new PalindromRekursiv();
     }
 
     /**
-     * @param args
+     * eigentliche Startmethode
+     * 
+     * @param args übergebene Parameter aus Main Methode
      * @throws IOException
      */
     public void start(String[] args) throws IOException {

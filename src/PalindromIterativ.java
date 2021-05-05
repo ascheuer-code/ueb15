@@ -1,9 +1,18 @@
+/** ueb 15 - Palinddrom Iterativ
+* 
+* @author Simon Klasen & Andreas Scheuer
+* @version 0.1
+*/
+
 public class PalindromIterativ implements Palindrom {
 
     /**
-     * @param wort
-     * @return boolean
+     * Methode isPalindrom implementiert aus Interface
+     * 
+     * @param wort wird auf Palindrom getestet
+     * @return gibt true oder false zurück
      */
+    
     @Override
     public boolean isPalindrom(String wort) {
 
