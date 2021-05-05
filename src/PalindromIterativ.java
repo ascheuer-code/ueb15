@@ -1,5 +1,9 @@
 public class PalindromIterativ implements Palindrom {
 
+    /**
+     * @param wort
+     * @return boolean
+     */
     @Override
     public boolean isPalindrom(String wort) {
 

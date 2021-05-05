@@ -12,6 +12,12 @@ import java.util.ArrayList;
 
 public class Lib_File {
 
+    /**
+     * @param file
+     * @return ArrayList<Object>
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Object> deserializeObjects(File file) throws IOException, ClassNotFoundException {
 
         ArrayList<Object> objects = new ArrayList<Object>();
@@ -28,6 +34,11 @@ public class Lib_File {
 
     }
 
+    /**
+     * @param objects
+     * @return File
+     * @throws IOException
+     */
     public static File serializeArrayList(ArrayList<Object> objects) throws IOException {
 
         File file = File.createTempFile("temp", ".tmp");
@@ -43,6 +54,11 @@ public class Lib_File {
         return file;
     }
 
+    /**
+     * @param filename
+     * @return ArrayList<String>
+     * @throws IOException
+     */
     public static ArrayList<String> readLinebyLine(String filename) throws IOException {
 
         File file = new File(filename);
@@ -52,6 +68,11 @@ public class Lib_File {
 
     }
 
+    /**
+     * @param filename
+     * @return boolean
+     * @throws FileNotFoundException
+     */
     public static boolean isExistentAndReadibleBoolean(String filename) throws FileNotFoundException {
         File file = new File(filename);
         if (file.exists() && file.canRead() && !file.isDirectory()) {
@@ -60,6 +81,12 @@ public class Lib_File {
         return false;
     }
 
+    /**
+     * @param lise
+     * @param filename
+     * @param append
+     * @throws IOException
+     */
     public static <T> void writeTextToFile(ArrayList<T> lise, String filename, boolean append) throws IOException {
 
         FileWriter filewriter = new FileWriter(filename, append);

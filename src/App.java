@@ -6,6 +6,10 @@ public class App {
     private PalindromIterativ palindromiterativ;
     private PalindromRekursiv palindromrekursiv;
 
+    /**
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         new App().start(args);
     }
@@ -15,6 +19,10 @@ public class App {
         palindromrekursiv = new PalindromRekursiv();
     }
 
+    /**
+     * @param args
+     * @throws IOException
+     */
     public void start(String[] args) throws IOException {
 
         ArrayList<String> log = new ArrayList<String>();
