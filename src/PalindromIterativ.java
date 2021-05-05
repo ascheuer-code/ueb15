@@ -4,7 +4,7 @@ public class PalindromIterativ implements Palindrom {
     public boolean isPalindrom(String wort) {
 
         if (wort.length() == 0 || wort.length() == 1) {
-            return false;
+            return true;
         }
 
         int n = wort.length() / 2;

@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -51,11 +52,20 @@ public class Lib_File {
 
     }
 
-    public static boolean isExistentBoolean(String filename) throws FileNotFoundException {
+    public static boolean isExistentAndReadibleBoolean(String filename) throws FileNotFoundException {
         File file = new File(filename);
-        if (file.exists()) {
+        if (file.exists() && file.canRead() && !file.isDirectory()) {
             return true;
         }
         return false;
+    }
+
+    public static <T> void writeTextToFile(ArrayList<T> lise, String filename, boolean append) throws IOException {
+
+        FileWriter filewriter = new FileWriter(filename, append);
+        for (T t : lise) {
+            filewriter.write(t.toString() + "\n");
+        }
+        filewriter.close();
     }
 }
