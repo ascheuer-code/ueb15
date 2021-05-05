@@ -1,9 +1,4 @@
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class App {
@@ -26,44 +21,33 @@ public class App {
 
         final String filename = args[0];
 
-        if (Lib_File.isExistentBoolean(filename)) {
+        if (Lib_File.isExistentAndReadibleBoolean(filename)) {
             ArrayList<String> list = Lib_File.readLinebyLine(filename);
 
-            log.add(String.format("%5s %10s %10s", "Stringlaenge", "Iterativ", "Rekursiv"));
+            log.add(String.format("%s,%s,%s", "Stringlaenge", "Iterativ", "Rekursiv"));
 
             list.forEach((p) -> {
 
                 Long startiterativ;
-
                 long startrekursiv;
-                Long enderekursiv;
 
                 startiterativ = System.nanoTime();
-                palindromiterativ.isPalindrom(p);
+                palindromiterativ.isPalindrom(p.toLowerCase());
                 Long ergebnissIterativ = System.nanoTime() - startiterativ;
 
                 startrekursiv = System.nanoTime();
-                palindromrekursiv.isPalindrom(p);
+                palindromrekursiv.isPalindrom(p.toLowerCase());
                 Long ergebnissrekursiv = System.nanoTime() - startrekursiv;
 
-                log.add(String.format("%5d %10d,%10d", p.length(), ergebnissIterativ, ergebnissrekursiv));
+                log.add(String.format("%d,%d,%d", p.length(), ergebnissIterativ, ergebnissrekursiv));
             });
 
-            log.forEach(p -> System.out.println(p));
-
-            // TODO: schrott aus dem log in ne datei schreiben und aus dem dreck dann nen
-            // beschissenes Diagramm machen
-
-            File file = new File("ergebniss.txt");
-            for (String string : log) {
-                Files.writeString(Paths.get(file.getAbsolutePath()), String.format("%s\n", string),
-                        StandardCharsets.UTF_8, StandardOpenOption.APPEND);
-            }
+            Lib_File.writeTextToFile(log, "Ergebniss.txt", true);
 
         } else {
             for (String wort : args) {
-                System.out.println(palindromiterativ.isPalindrom(wort));
-                System.out.println(palindromrekursiv.isPalindrom(wort));
+                System.out.println(palindromiterativ.isPalindrom(wort.toLowerCase()));
+                System.out.println(palindromrekursiv.isPalindrom(wort.toLowerCase()));
             }
         }
 
