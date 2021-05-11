@@ -54,11 +54,11 @@ public class PalindromMain {
                 long startrekursiv;
 
                 startiterativ = System.nanoTime();
-                palindromiterativ.isPalindrom(Lib_String.RemoveAllWhitespaces(p.toLowerCase()));
+                palindromiterativ.isPalindrom(Lib_String.removeAllWhitespaces(p.toLowerCase()));
                 Long ergebnissIterativ = System.nanoTime() - startiterativ;
 
                 startrekursiv = System.nanoTime();
-                palindromrekursiv.isPalindrom(Lib_String.RemoveAllWhitespaces(p.toLowerCase()));
+                palindromrekursiv.isPalindrom(Lib_String.removeAllWhitespaces(p.toLowerCase()));
                 Long ergebnissrekursiv = System.nanoTime() - startrekursiv;
 
                 log.add(String.format("%d,%d,%d", p.length(), ergebnissIterativ, ergebnissrekursiv));
@@ -68,8 +68,8 @@ public class PalindromMain {
 
         } else {
             for (String wort : args) {
-                System.out.println(palindromiterativ.isPalindrom(Lib_String.RemoveAllWhitespaces(wort.toLowerCase())));
-                System.out.println(palindromrekursiv.isPalindrom(Lib_String.RemoveAllWhitespaces(wort.toLowerCase())));
+                System.out.println(palindromiterativ.isPalindrom(Lib_String.removeAllWhitespaces(wort.toLowerCase())));
+                System.out.println(palindromrekursiv.isPalindrom(Lib_String.removeAllWhitespaces(wort.toLowerCase())));
             }
         }
 

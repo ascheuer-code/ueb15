@@ -20,7 +20,7 @@ public class Lib_String {
      *                   Variable 2))
      * @param \s+        (alle zusammenhängende Leerstellen)
      */
-    public static String AllWhitespaceToOne(String string) {
+    public static String allWhitespaceToOne(String string) {
         string = string.stripTrailing();
         string = string.stripLeading();
         string = string.replaceAll("\\s+", " ");
@@ -50,7 +50,7 @@ public class Lib_String {
      *                   Variable 2))
      * @param \s+        (alle zusammenhängende Leerstellen)
      */
-    public static String RemoveAllWhitespaces(String string) {
+    public static String removeAllWhitespaces(String string) {
         string = string.replaceAll("\\s+", "");
         return string;
     }
