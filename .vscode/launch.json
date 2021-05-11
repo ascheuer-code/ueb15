@@ -18,7 +18,7 @@
                 "-XX:-UseLoopPredicate",
             ],
             "console": "externalTerminal",
-            "args": "one one"
+            "args": "one ONo"
         }
     ],
     "java.project.sourcePaths": [

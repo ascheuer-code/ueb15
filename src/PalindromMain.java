@@ -1,11 +1,12 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-/** ueb 15 - Palinddrom Main
-* 
-* @author Simon Klasen & Andreas Scheuer
-* @version 0.1
-*/ 
+/**
+ * ueb 15 - Palinddrom Main
+ * 
+ * @author Simon Klasen & Andreas Scheuer
+ * @version 0.1
+ */
 
 public class PalindromMain {
 
@@ -13,7 +14,7 @@ public class PalindromMain {
     private PalindromRekursiv palindromrekursiv;
 
     /**
-     * Main Methode 
+     * Main Methode
      * 
      * @param args übergebene Parameter
      * @throws Exception
@@ -22,7 +23,7 @@ public class PalindromMain {
         new PalindromMain().start(args);
     }
 
-    /** 
+    /**
      * Standardkonstruktor
      */
     public PalindromMain() {
@@ -53,11 +54,11 @@ public class PalindromMain {
                 long startrekursiv;
 
                 startiterativ = System.nanoTime();
-                palindromiterativ.isPalindrom(p.toLowerCase());
+                palindromiterativ.isPalindrom(Lib_String.RemoveAllWhitespaces(p.toLowerCase()));
                 Long ergebnissIterativ = System.nanoTime() - startiterativ;
 
                 startrekursiv = System.nanoTime();
-                palindromrekursiv.isPalindrom(p.toLowerCase());
+                palindromrekursiv.isPalindrom(Lib_String.RemoveAllWhitespaces(p.toLowerCase()));
                 Long ergebnissrekursiv = System.nanoTime() - startrekursiv;
 
                 log.add(String.format("%d,%d,%d", p.length(), ergebnissIterativ, ergebnissrekursiv));
@@ -67,8 +68,8 @@ public class PalindromMain {
 
         } else {
             for (String wort : args) {
-                System.out.println(palindromiterativ.isPalindrom(wort.toLowerCase()));
-                System.out.println(palindromrekursiv.isPalindrom(wort.toLowerCase()));
+                System.out.println(palindromiterativ.isPalindrom(Lib_String.RemoveAllWhitespaces(wort.toLowerCase())));
+                System.out.println(palindromrekursiv.isPalindrom(Lib_String.RemoveAllWhitespaces(wort.toLowerCase())));
             }
         }
 
